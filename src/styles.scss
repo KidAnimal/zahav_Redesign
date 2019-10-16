@@ -1,0 +1,460 @@
+/* You can add global styles to this file, and also import other style files */
+//IMPORTS
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url(//db.onlinewebfonts.com/c/c8c979ec8d98cbda4b7157588774c2cc?family=Helvetica+Neue);
+
+//RESET CSS 
+html, body{
+    margin:0;
+    padding:0;
+}
+
+//VARIABLES
+
+$accentColour: #A53D05; 
+$lightGreen: #F3F7EA;
+$heroText: 'helvetica neue';
+$bodyText: 'Segoe UI';
+
+//MIXINS
+@mixin breakpoint($point) {
+    @if $point == desktop {
+      @media (min-width: 70em) { @content ; }
+   }
+    @else if $point == laptop {
+      @media (min-width: 64em) and (max-width: 69.9em) { @content ; }
+   }
+     @else if $point == tablet {
+      @media (min-width: 50em) and (max-width: 63.9) { @content ; }
+   }
+    @else if $point == phablet {
+      @media (min-width: 37.5em) and (max-width: 49.9em){ @content ; }
+   }
+    @else if $point == mobileOnly {
+      @media (max-width: 37.5em) and (max-width: 37.4em) { @content ; }
+ 
+   }
+}
+
+@mixin transition {
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        color: hsl(80  / $i, 80%, 80%);
+        animation: unvielBackground 1s #{$i*.2}s
+      }
+    }
+}
+
+//PAGE TRANSITIONS 
+
+main{
+    position: relative;
+}
+#mainNav{
+    @include breakpoint(desktop){
+        margin-left:50%;
+    }
+    @include breakpoint(laptop){
+        margin-left:40%;
+    }
+    @include breakpoint(phablet){
+        margin:0;
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+
+#mainNav a{
+    text-decoration: none;
+    color:#C55105; 
+    margin-right:4%;
+    font-family:'helvetica neue';
+    margin-left:10%;
+}
+#mainNav a:hover{
+    font-family:'tiempos fine test';
+}
+.row{
+    display:flex;
+}
+.column{
+    display:50%;
+}
+.columnMenuItems{
+    display:33.33%;
+    justify-content:center;
+}
+//MAIN SCSS
+.heroWrapper{
+    position: relative;
+    height:100vh;
+    overflow:hidden;
+}
+#hero{
+    width:100%;
+}
+#heroText{
+    position: absolute;
+    font-size: 500px;
+    top:17%;
+    margin-left:15%;
+    font-family: $heroText;
+    color:white;
+}
+#greenSquare{
+    background-color:$lightGreen;
+    width:1000px;
+    height:500px;
+    position:fixed;
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        width:500px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+#sectionCover{
+    height:100vh;
+    width:100vw;
+    background-color:black;
+    animation-iteration-count: 1;
+    position: absolute; 
+    z-index:100;
+}
+.heroLetter{
+    //@include transition();
+}
+//ABOUT 
+.aboutPage{
+    height:100vh;
+    width:100%;
+}
+#gold{
+    font-size:300px;
+    color:$accentColour;
+    font-family : "Monotype Corsiva";
+    transform: rotate(-60deg);
+    z-index: 100;
+    position:relative;
+
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        font-size:200px;
+    }
+    @include breakpoint(phablet){
+        font-size:200px;
+    }
+    @include breakpoint(mobileOnly){
+        font-size:100px;
+    }
+}
+
+.aboutTextWrapper{
+    margin-top:50px;
+}
+#aboutImage1{
+    margin-top:5%;
+}
+#chanaMasala{ 
+    width:1000px;
+    margin:0;
+    padding:0;
+    margin-top:200px;
+
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        margin-top:600px;
+        width:700px;
+    }
+    @include breakpoint(phablet){
+        margin-top:600px;
+        width:700px;
+    }
+    @include breakpoint(mobileOnly){
+        margin-top:800px;
+        width:400px;
+    }
+}
+#richHistory{
+    font-size:30px;
+    font-family: $bodyText;
+}
+
+#historyWrapper{
+    position: relative;
+    margin-right:15%;
+    margin-left:35%;
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        margin-left:5%;
+        margin-right:5%;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+#aboutZahav{
+    text-align:left;
+    font-family: $bodyText;
+    position: relative;
+}
+#solomonovQuote{
+    font-family:'Monotype Corsiva';
+    font-size: 70px;
+    margin-top:100px;
+    margin-right:150px;
+    margin-left:200px;
+    color:$accentColour;
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        font-size:40px;
+        margin-left:100px;
+        margin-right:170px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+#tableFood{
+    width:700px;
+    margin-top:100px;
+    margin-left:100px;
+    position: relative;
+
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        width:500px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+#border1{
+    border:solid 3px grey;
+    position: absolute;  
+    width:700px;
+    height:450px;
+    margin-top:200px;
+    margin-left:150px;
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        width:500px;
+        height:300px;
+        margin-left:30px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+#zahavTable{
+    width:700px;
+    margin-left:200px;
+    margin-top:70px;
+    position: relative;
+}
+#border2{
+    border:solid 3px grey;
+    position: absolute;  
+    width:700px;
+    height:500px;
+    margin-top:100px;
+    margin-left:350px;
+
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        width:700px;
+        height:400px;
+        margin-top:400px;
+        margin-left:40px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+#modernIsreali{
+    font-family:'Modern No. 20';
+    font-size:70px;
+    margin-top:90px;
+    margin-left:100px;
+    color:$accentColour;
+
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        margin-top:100px;
+        font-size:50px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+#mIText{
+    font-family: $bodyText;
+    font-size: 20px;
+    white-space: initial;
+    margin-right:100px;
+}
+#cuisineText{
+    margin: 40px;
+    margin-left:100px;
+}
+.subTitle{
+    font-family:$bodyText;
+    font-size:40px;
+    color:$accentColour;
+}
+.menuImg{
+    margin:0;
+    padding:0;
+    width:650px;
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        width:380px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+#menuItems{
+    margin-top:300px;
+}
+.descWrapper{
+    height:200px;
+    padding:100px;
+}
+#solomonovPortrait{
+    width:100vw;
+    position:relative;
+}
+#solomonovHeader{
+    position: absolute;
+    margin-top:-900px;
+    margin-left:250px;
+    font-size:90px;
+    font-family: 'Helvetica neue';
+    color:$accentColour;
+
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        margin-top:-600px;
+        margin-left:70px;
+        font-size:60px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+#solomonovtext{
+    position: absolute;
+    margin-top:-650px;
+    margin-left:350px;
+    margin-right:1100px;
+    font-family: $bodyText;
+
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        margin-top:-450px;
+        margin-left:130px;
+        margin-right:640px;
+        font-size:12px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+#svgContainer{
+    position: relative;
+    height:140vh;
+    margin-left:-200px;
+    margin-top:-1361px;
+    overflow:hidden;
+    
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        height:85vh;
+        margin-left:-200px;
+        margin-top:-770px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+.descWrapperGreen :first-of-type{
+    background-color:$lightGreen;
+}
+agm-map {
+    height: 100vh;
+    width:50%;
+
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+  }
+#locationInfo{
+    position: absolute; 
+    margin-top:-800px;
+    margin-left:1200px;
+    margin-right:200px;
+
+    @include breakpoint(desktop){
+    }
+    @include breakpoint(laptop){
+        margin-right:100px;
+        margin-left:600px;
+    }
+    @include breakpoint(phablet){
+    }
+    @include breakpoint(mobileOnly){
+    }
+}
+
+//KEYFRAMES
+
+@keyframes unvielBackground{
+    0%{ margin-right:2000px; }
+    100%{ margin-right:0px }
+}
+@keyframes removeBackground{
+    0%{ margin-right:2000px; }
+    100%{ margin-right:-2000px }
+}
+@keyframes dissolve{
+    0%{ opacity:0; }
+    100%{ opacity:1; }
+}
+@keyframes hoverTitle{
+    100%{color:green;font-size:120px;}
+}
+// @keyframes hoverImage{
+//     0%{margin-left:10%;}
+//     100%{}
+// }
